@@ -127,10 +127,19 @@ RUN wget https://packages.osrfoundation.org/gazebo.key -O - | apt-key add -
 RUN apt-get update
 
 # Install Python3 packages
+# RUN apt-get install -y python3 python3-pip
+# RUN pip3 install rospkg 
+# RUN pip3 install empy==3.3.4
+# RUN pip3 install psutil
+
+# Set UTF-8 locale variables
+ENV LC_ALL=C.UTF-8
+ENV LANG=C.UTF-8
+
+# Install Python3 packages
 RUN apt-get install -y python3 python3-pip
-RUN pip3 install rospkg 
-RUN pip3 install empy==3.3.4
-RUN pip3 install psutil
+RUN pip3 install --upgrade pip  # Upgrading pip prevents compiling from source when wheels exist
+RUN pip3 install rospkg empy==3.3.4 psutil
 
 # Time zone settings
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y tzdata
@@ -223,7 +232,7 @@ RUN pip3 install docker defusedxml netifaces
 # Download and build int-ball2_simulator
 RUN mkdir -p /home/nvidia
 WORKDIR /home/nvidia
-RUN git clone https://github.com/jaxa/int-ball2_simulator.git IB2
+RUN git clone -b melodic https://github.com/jaxa/int-ball2_simulator.git IB2
 
 # パラメータ書き換え用
 ## GSE

@@ -6,7 +6,7 @@
       If value set to false, the target nodes will be terminated when user logic is started.
     -->
     <param name="sensor_fusion" value="true" />
-    <param name="slam_wrapper" value="true" />
+    <param name="slam_wrapper" value="false" />
     <param name="ctl_only" value="true" />
     <param name="fsm" value="true" />
 
@@ -14,8 +14,8 @@
       If you want to start up camera_left and camera_right,
       you need to stop (set false) slam_wrapper.
     -->
-    <param name="camera_left" value="false" />
-    <param name="camera_right" value="false" />
+    <param name="camera_left" value="true" />
+    <param name="camera_right" value="true" />
   </group>
 
   <node name="user_template" pkg="user_template" type="user_template.py" output="screen">

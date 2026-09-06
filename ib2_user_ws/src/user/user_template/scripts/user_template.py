@@ -52,6 +52,8 @@ class UserTemplate:
 
     def run(self):
         while not rospy.is_shutdown():
+            print('UserTemplate is running...')
+
             msg = list(self.__status.encode(encoding='utf-8')[:UserTemplate.MAX_MSG_SIZE])
             if len(msg) < UserTemplate.MAX_MSG_SIZE:
                 msg.extend([0]*(UserTemplate.MAX_MSG_SIZE-len(msg)))
