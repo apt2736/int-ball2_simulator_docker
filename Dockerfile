@@ -232,7 +232,7 @@ RUN pip3 install docker defusedxml netifaces
 # Download and build int-ball2_simulator
 RUN mkdir -p /home/nvidia
 WORKDIR /home/nvidia
-RUN git clone -b melodic https://github.com/jaxa/int-ball2_simulator.git IB2
+RUN git clone -b melodic https://github.com/apt2736/int-ball2_simulator.git IB2
 
 # パラメータ書き換え用
 ## GSE
